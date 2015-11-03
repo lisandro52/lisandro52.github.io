@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="myApp">
+<header>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.29/angular.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+	<script src="./js/angular-table.min.js"></script>
+	<script src="./js/app.js"></script>
+</header>
+
+<body>
+	<div>
+		<div ng-controller="ProdsCtrl">
+			<!--
+			<table class="table table-striped">
+				<tr>
+					<th>Producto</th>
+					<th>Precio original</th>
+					<th>Precio CyberMonday</th>
+					<th>Precio supuesto</th>
+					<th>"Oferta" CyberMonday</th>
+					<th>Oferta real</th>
+				</tr>
+				<tr ng-repeat="p in products">
+					<td><a href="{{p.link}}">{{p.item}}</a></td>
+					<td>{{p.precio_orig}}</td>
+					<td>{{p.precio_cybermonday}}</td>
+					<td>{{p.precio_supuesto}}</td>
+					<td>{{p.oferta_virtual_porc}}%</td>
+					<td>{{p.oferta_real_porc}}%</td>
+				</tr>
+			</table>
+			-->
+			<table at-table at-list="products" class="table table-striped">
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td at-attribute="item" at-title="Producto" at-sortable at-initial-sorting="desc"><a href="{{item.link}}">{{item.item}}</a></td>
+						<td at-implicit at-attribute="precio_orig" at-title="Precio Octubre" at-sortable></td>
+						<td at-implicit at-attribute="precio_cybermonday" at-title="Precio CyberMonday" at-sortable></td>
+						<td at-implicit at-attribute="precio_supuesto" at-title="Precio supuesto" at-sortable></td>
+						<td at-attribute="oferta_virtual_porc" at-title='"Oferta" CyberMonday' at-sortable>{{item.oferta_virtual_porc}}%</td>
+						<td at-attribute="oferta_real_porc" at-title="Oferta real" at-sortable>{{item.oferta_real_porc}}%</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+
+</html>
