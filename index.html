@@ -20,8 +20,8 @@
 				<p>Si la "Oferta real" es negativa, quiere decir que hubo un incremento del precio - estás pagando el producto más CARO de lo que estaba hace un par de días. Estos productos se muestran de color rojo.</p>
 				<p>Si la "Oferta real" es positiva, y bastante alta, entonces hubo realmente una rebaja de precio. Estas ofertas se muestran de color verde si son mayores al 25%.</p>
 				<p>Cantidad total de productos: {{total_productos}}
-			</blockquote>
-			<table at-table at-list="products" at-paginated at-config="config_at" class="table table-striped">
+				<p><label>Filtro de productos: <input ng-model="searchText"></label></p>
+			<table at-table at-list="products | filter:{item:searchText}" at-paginated at-config="config_at" class="table table-striped">
 				<thead></thead>
 				<tbody>
 					<tr ng-class="{'danger': item.oferta_real_porc < 0, 'success': item.oferta_real_porc >= 25}">
@@ -34,7 +34,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<at-pagination at-list="products" at-config="config_at"></at-pagination>
+			<at-pagination at-list="products | filter:{item:searchText}" at-config="config_at"></at-pagination>
 		</div>
 	</div>
 <script type="text/javascript"> var _paq = _paq || []; _paq.push(['trackPageView']); _paq.push(['enableLinkTracking']); (function() { var u="//unaporon.ga/"; _paq.push(['setTrackerUrl', u+'piwik.php']); _paq.push(['setSiteId', 1]); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s); })(); </script> <noscript><p><img src="//unaporon.ga/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
