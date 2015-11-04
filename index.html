@@ -18,13 +18,13 @@
   				<p>Las columnas se pueden ordenar de forma ascendente o descendente.</p>
 				<p>Cada producto tiene un link a la página oficial.</p>
 				<p>Si la "Oferta real" es negativa, quiere decir que hubo un incremento del precio - estás pagando el producto más CARO de lo que estaba hace un par de días. Estos productos se muestran de color rojo.</p>
-				<p>Si la "Oferta real" es positiva, y bastante alta, entonces hubo realmente una rebaja de precio. Estas ofertas se muestran de color verde si son mayores al 30%.</p>
-				<p>Los productos en amarillo tienen una oferta del 0% real, es decir, el precio actual es el mismo de siempre</p>
-			
-			<table at-table at-list="products" class="table table-striped">
+				<p>Si la "Oferta real" es positiva, y bastante alta, entonces hubo realmente una rebaja de precio. Estas ofertas se muestran de color verde si son mayores al 25%.</p>
+				<p>Cantidad total de productos: {{total_productos}}
+			</blockquote>
+			<table at-table at-list="products" at-paginated at-config="config_at" class="table table-striped">
 				<thead></thead>
 				<tbody>
-					<tr ng-class="{'danger': item.oferta_real_porc < 0, 'success': item.oferta_real_porc >= 30, 'warning': item.oferta_real_porc == 0 }">
+					<tr ng-class="{'danger': item.oferta_real_porc < 0, 'success': item.oferta_real_porc >= 25}">
 						<td at-attribute="item" at-title="Producto" at-sortable at-initial-sorting="asc"><a href="{{item.link}}">{{item.item}}</a></td>
 						<td at-attribute="precio_orig" at-title="Precio Octubre" at-sortable>{{item.precio_orig | number}}</td>
 						<td at-attribute="precio_cybermonday" at-title="Precio CyberMonday" at-sortable>{{item.precio_cybermonday | number:0}}</td>
@@ -34,6 +34,7 @@
 					</tr>
 				</tbody>
 			</table>
+			<at-pagination at-list="products" at-config="config_at"></at-pagination>
 		</div>
 	</div>
 <script type="text/javascript"> var _paq = _paq || []; _paq.push(['trackPageView']); _paq.push(['enableLinkTracking']); (function() { var u="//unaporon.ga/"; _paq.push(['setTrackerUrl', u+'piwik.php']); _paq.push(['setSiteId', 1]); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s); })(); </script> <noscript><p><img src="//unaporon.ga/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
