@@ -7,7 +7,7 @@ angular.module('myApp', ['angular-table'])
 		vm.loadProducts = function() {
 			var httpRequest = $http({
 				method: 'GET',
-				url: 'https://dl.dropboxusercontent.com/u/21135903/clean_table_big.json',
+				url: 'http://lisandro52.github.io/clean_table_big.json',
 				data: ''
 			}).success(function(data, status) {
 				vm.products = data;
